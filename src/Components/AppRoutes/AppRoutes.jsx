@@ -2,7 +2,7 @@ import React from 'react'
 
 function AppRoutes() {
   return (
-    <div>
+    <div className='AppRoutes'>
       AppRoutes
     </div>
   )

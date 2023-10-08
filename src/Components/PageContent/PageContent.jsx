@@ -2,7 +2,7 @@ import React from 'react'
 
 function PageContent() {
   return (
-    <div>
+    <div className='PageContent'>
       PageContent
     </div>
   )

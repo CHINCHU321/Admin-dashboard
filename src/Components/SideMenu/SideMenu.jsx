@@ -2,7 +2,7 @@ import React from 'react'
 
 function SideMenu() {
   return (
-    <div>
+    <div className='SideMenu'>
       SideMenu
     </div>
   )

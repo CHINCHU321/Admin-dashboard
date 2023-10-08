@@ -6,11 +6,14 @@
 }
 
 .AppHeader{
-  
+  height: 50px;
 }
 .AppFooter{
 
 }
 .SideMenu{
-  
+top: 50px;
+}
+.PageContent{
+
 }

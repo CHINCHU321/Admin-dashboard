@@ -2,7 +2,7 @@ import React from 'react'
 
 function AppHeader() {
   return (
-    <div>
+    <div className='AppHeader'>
       AppHeader
     </div>
   )

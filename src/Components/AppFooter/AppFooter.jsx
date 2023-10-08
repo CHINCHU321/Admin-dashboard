@@ -2,7 +2,7 @@ import React from 'react'
 
 function AppFooter() {
   return (
-    <div>
+    <div className='AppFooter'>
       AppFooter
     </div>
   )
