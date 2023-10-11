@@ -3,7 +3,7 @@ import React from 'react'
 function AppHeader() {
   return (
     <div className='AppHeader'>
-      AppHeader
+        <img src="./logo.png" alt="logo" />
     </div>
   )
 }
