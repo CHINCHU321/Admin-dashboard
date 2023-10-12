@@ -7,6 +7,10 @@ function SideMenu() {
   return (
     <div className='SideMenu'>
       <Menu
+      onClick={(items)=>{
+        
+      }}
+      
       items={[
         {
           label:"Dashboard",
