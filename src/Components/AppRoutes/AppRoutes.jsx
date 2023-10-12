@@ -11,7 +11,6 @@ function AppRoutes() {
     <Route path='/inventory' element={<Inventory/>}></Route>
     <Route path='/customers' element={<Customers/>}></Route>
     <Route path='/orders' element={<Orders/>}></Route>
-
    </Routes>
    
   )
