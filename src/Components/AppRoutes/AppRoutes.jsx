@@ -1,10 +1,12 @@
 import React from 'react'
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function AppRoutes() {
   return (
-    <div className='AppRoutes'>
-      AppRoutes
-    </div>
+   <BrowserRouter>
+   <Routes>
+    <Route path='/' element={<Dash}></Route>
+   </Routes>
+   </BrowserRouter>
   )
 }
 
