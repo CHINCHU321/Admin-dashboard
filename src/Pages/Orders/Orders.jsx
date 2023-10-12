@@ -4,7 +4,8 @@ import { Typography } from 'antd'
 function Orders() {
   return (
     <div>
-    <Typography.Text>Orders</Typography.Text>
+       <Typography.Title level={4}>
+        Orders</Typography.Title>
      
     </div>
   )
