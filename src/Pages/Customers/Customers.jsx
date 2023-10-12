@@ -1,10 +1,10 @@
-import { Typography } from 'antd'
+import { Typography } from 'antd';
 import React from 'react'
 
 function Customers() {
   return (
     <div>
-      <Typography.Text>Costumers</Typography.Text>
+      <Typography.Text>Customers</Typography.Text>
     </div>
   )
 }
