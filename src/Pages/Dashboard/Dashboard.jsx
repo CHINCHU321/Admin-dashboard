@@ -1,6 +1,8 @@
-import React from 'react'
 import { Card, Space, Statistic, Table, Typography } from 'antd'
 import{ ShoppingCartOutlined, ShoppingOutlined,UserOutlined, DollarCircleOutlined } from '@ant-design/icons';
+import { useState ,useEffect} from 'react'
+import { getOrders } from "../../API";
+
 function Dashboard() {
   return (
     <div>
@@ -70,11 +72,21 @@ function DashboardCard({ title,value,icon}){
   )
 }
 function RecentOrders(){
+  const [dataSource, setDataSource] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    getOrders().then((res) => {
+      setDataSource(res.products.splice(0, 3));
+      setLoading(false);
+    });
+  }, []);
   return(
 <Table
   columns={[
   {
-    title:'title',
+    title:'Title',
     dataIndex:'title',
   },
   {
@@ -82,10 +94,12 @@ function RecentOrders(){
     dataIndex:'quantity',
   },
   {
-    title:'price',
+    title:'Price',
     dataIndex:'discountPrice',
   }
 ]}
+loading={loading}
+dataSource={dataSource}
   ></Table>
 
   ) }
