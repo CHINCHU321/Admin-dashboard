@@ -129,6 +129,7 @@ pagination={false}
 
   ) }
 function DashboardChart(){
+  useEffect
    const options = {
     responsive: true,
     plugins: {
