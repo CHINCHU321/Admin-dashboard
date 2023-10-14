@@ -2,10 +2,18 @@ import { Card, Space, Statistic, Table, Typography } from 'antd'
 import{ ShoppingCartOutlined, ShoppingOutlined,UserOutlined, DollarCircleOutlined } from '@ant-design/icons';
 import { useState ,useEffect} from 'react'
 import { getOrders } from "../../API";
-
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 function Dashboard() {
   return (
-    <div>
+    <Space size={20} direction='vertical'>
        <Typography.Title level={4}>Dashboard</Typography.Title>
         <Space direction='horizontal'>
 
@@ -54,7 +62,7 @@ function Dashboard() {
         <Space>
           <RecentOrders/>
         </Space>
-   </div>
+   </Space>
   )
 }
 function DashboardCard({ title,value,icon}){
@@ -83,7 +91,9 @@ function RecentOrders(){
     });
   }, []);
   return(
-<Table
+    <>
+    <Typography.Text>Recent Orders</Typography.Text>
+    <Table
   columns={[
   {
     title:'Title',
@@ -100,7 +110,10 @@ function RecentOrders(){
 ]}
 loading={loading}
 dataSource={dataSource}
+pagination={false}
   ></Table>
+    </>
+
 
   ) }
 export default Dashboard
