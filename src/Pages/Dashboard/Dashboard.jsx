@@ -11,6 +11,17 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 function Dashboard() {
   return (
     <Space size={20} direction='vertical'>
@@ -116,4 +127,8 @@ pagination={false}
 
 
   ) }
+function DashboardChart(){
+  return <Bar options={options} data={data} />;
+}
+
 export default Dashboard
