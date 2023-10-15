@@ -1,7 +1,7 @@
 import { Card, Space, Statistic, Table, Typography } from 'antd'
 import{ ShoppingCartOutlined, ShoppingOutlined,UserOutlined, DollarCircleOutlined } from '@ant-design/icons';
 import { useState ,useEffect} from 'react'
-import { getOrders } from "../../API";
+import { getOrders, getRevenue } from "../../API";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -125,11 +125,29 @@ dataSource={dataSource}
 pagination={false}
   ></Table>
     </>
-
-
   ) }
 function DashboardChart(){
-  useEffect
+  const [RevenueData, setRevenueData] = useState({
+    labels:[],
+    datasets:[]
+  })
+  useEffect(() => {
+   getRevenue().then(res=>{
+    const labels = res.carts.map(cart=>{
+      return `User-${cart.userId}`
+    })
+    const data = res.carts.map(cart=>{
+      return cart.discountedTotal;
+    })
+   const dataSource = {
+    labels,
+    datasets: [ {
+        label: 'Revenue',
+        data: data,
+        backgroundColor: 'rgba(255, 0, 0, 1)',
+      }, ], };
+  setRevenueData(dataSource);
+   })  }, [])
    const options = {
     responsive: true,
     plugins: {
@@ -139,28 +157,8 @@ function DashboardChart(){
       title: {
         display: true,
         text: 'Order Revenue',
-      },
-    },
-  };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-   const data = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => Math.random()*1000),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => Math.random()*1000),
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
-  
-  return <Bar options={options} data={data} />;
+      }, }, };
+  return <Card style={{ width:500, height:250}}>
+    <Bar options={options} data={RevenueData} /></Card>;
 }
-
 export default Dashboard
