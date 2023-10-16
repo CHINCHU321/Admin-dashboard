@@ -9,7 +9,7 @@ function AppHeader() {
         src="./logo.png" alt="logo"></Image>
         <Typography.Title>Dashboard</Typography.Title>
         <Space>
-          <Badge count={10}>
+          <Badge count={10} dot>
           <MailOutlined style={{fontSize:24}}/>
           </Badge>
           <Badge count={20}>

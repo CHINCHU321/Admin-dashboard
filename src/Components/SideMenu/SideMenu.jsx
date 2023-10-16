@@ -1,18 +1,29 @@
-import React from 'react'
 import {Menu} from 'antd';
 import{ AppstoreOutlined, ShopOutlined, ShoppingCartOutlined, UserOutlined} 
 from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation} from 'react-router-dom';
+import { useState, useEffect} from 'react'
 
 function SideMenu() {
+  const location = useLocation();
+  const [selectedKeys, setSelectedKeys] = useState("/");
+
+  useEffect(() => {
+    const pathName = location.pathname;
+    setSelectedKeys(pathName);
+  }, [location.pathname]);
+
   const navigate = useNavigate();
   return (
-    <div className='SideMenu'>
+    <div className="SideMenu">
       <Menu
-      onClick={(item)=>{
-        navigate(item.key);
-      }}
-      
+        className="SideMenuVertical"
+        mode="vertical"
+        onClick={(item) => {
+          //item.key
+          navigate(item.key);
+        }}
+        selectedKeys={[selectedKeys]}
       items={[
         {
           label:"Dashboard",

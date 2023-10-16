@@ -1,7 +1,7 @@
 import { Card, Space, Statistic, Table, Typography } from 'antd'
 import{ ShoppingCartOutlined, ShoppingOutlined,UserOutlined, DollarCircleOutlined } from '@ant-design/icons';
 import { useState ,useEffect} from 'react'
-import { getOrders, getRevenue } from "../../API";
+import { getCustomers, getOrders, getRevenue,getInventory } from "../../API";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -27,6 +27,22 @@ function Dashboard() {
   const [inventory, setInventory] = useState(0);
   const [customers, setCustomers] = useState(0);
   const [revenue, setRevenue] = useState(0);
+ useEffect(() =>{
+  getOrders().then(res=>{
+    setOrders(res.total);
+    setRevenue(res.discountedTotal);
+
+  })
+  getInventory().then(res=>{
+    setInventory(res.total);
+  })
+  getCustomers().then(res=>{
+    setCustomers(res.total);
+  })
+  
+ })    
+
+
   return (
     <Space size={20} direction='vertical'>
        <Typography.Title level={4}>Dashboard</Typography.Title>
