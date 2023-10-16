@@ -23,6 +23,10 @@ ChartJS.register(
 );
 
 function Dashboard() {
+  const [orders, setOrders] = useState(0)
+  const [inventory, setInventory] = useState(0);
+  const [customers, setCustomers] = useState(0);
+  const [revenue, setRevenue] = useState(0);
   return (
     <Space size={20} direction='vertical'>
        <Typography.Title level={4}>Dashboard</Typography.Title>
@@ -37,7 +41,7 @@ function Dashboard() {
             padding:8
            }}/>} 
           title={'Orders'} 
-          value={12345} />
+          value={orders} />
 
           <DashboardCard
            icon={<ShoppingOutlined  style={{
@@ -47,7 +51,7 @@ function Dashboard() {
             fontSize:24,
             padding:8
            }}/>} 
-          title={'Inventory'} value={12345} />
+          title={'Inventory'} value={inventory} />
 
           <DashboardCard icon={<UserOutlined
           style={{
@@ -57,7 +61,7 @@ function Dashboard() {
             fontSize:24,
             padding:8
            }}/>} 
-          title={'Customers'} value={12345} />
+          title={'Customers'} value={customers} />
 
           <DashboardCard icon={<DollarCircleOutlined
           style={{
@@ -67,7 +71,7 @@ function Dashboard() {
             fontSize:24,
             padding:8
            }}/>} 
-          title={'Revenue'} value={12345} />
+          title={'Revenue'} value={revenue} />
 
         </Space>
         <Space>
